@@ -1,0 +1,26 @@
+{
+  "name": "dichter-api-minor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "devStart": "nodemon -e js,json,html,eta start server.js",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/auth": "^4.2.0",
+    "@fastify/bearer-auth": "^9.0.0",
+    "@fastify/cookie": "^8.3.0",
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/rate-limit": "^8.0.0",
+    "@fastify/static": "^6.10.0",
+    "@fastify/view": "^7.4.1",
+    "dotenv": "^16.0.3",
+    "eta": "^2.0.1",
+    "fastify": "^4.15.0",
+    "node-appwrite": "^8.2.0",
+    "openai": "^3.2.1"
+  }
+}
