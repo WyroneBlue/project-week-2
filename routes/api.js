@@ -10,6 +10,25 @@ const headers = {
     'Content-Type': 'text/plain',
 };
 
+const fetchKeywords = async (paragraph) => {
+    try {
+        const response = await fetch(`${endpoint}/keywords`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify({
+                data: {
+                    paragraph
+                }
+            }),
+        });
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+        return error;
+    }
+}
 
 router.post('/poetry', async(req, res) => {
 
@@ -20,31 +39,12 @@ router.post('/poetry', async(req, res) => {
             headers,
         });
         const data = await response.json();
-        res.send(data);
-    } catch (error) {
-        console.error(error);
-        return error;
-    }
-});
 
-router.post('/keywords', async (req, res) => {
+        const { data: { paragraph } } = data;
 
-    const { paragraph } = req.body;
+        const keywords = await fetchKeywords(paragraph);
+        res.send(keywords);
 
-    try {
-        const response = await fetch(`${endpoint}/keywords`, {
-            method: 'POST',
-            headers,
-            body: JSON.stringify({
-                data: {
-                    paragraph
-                }
-            }),
-
-        });
-
-        const data = await response.json();
-        res.send(data);
     } catch (error) {
         console.error(error);
         return error;
@@ -53,7 +53,7 @@ router.post('/keywords', async (req, res) => {
 
 router.post('/rewrite', async(req, res) => {
 
-    const { oldWord, newWord } = req.body;
+    const { oldWord, newWord, paragraph } = req.body;
 
     try {
         const response = await fetch(`${endpoint}/rewrite?old=${oldWord}&new=${newWord}`, {
@@ -64,11 +64,12 @@ router.post('/rewrite', async(req, res) => {
                     paragraph
                 }
             }),
-
         });
-
         const data = await response.json();
-        res.send(data);
+        const { data: { paragraph: newParagraph } } = data;
+
+        const keywords = await fetchKeywords(newParagraph);
+        res.send(keywords);
     } catch (error) {
         console.error(error);
         return error;
