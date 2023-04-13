@@ -12,13 +12,15 @@ body.tragedy{
 
 section.heading-genre{
     display: none;
+    margin-bottom: 2rem;
     opacity: 0;
+    transform: translateY(100px);
     transition: 0.4s;
 }
 
 section.heading-genre.fade-in{
     opacity: 1;
-    transform: translateY(-100px);
+    transform: translateY(0);
 }
 
 section.heading-genre.block{

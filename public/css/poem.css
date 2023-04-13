@@ -5,7 +5,7 @@ section.poem{
     display: none;
 }
 
-section.poem.fade-in{
+section.poem.show{
     display: grid;
     place-content: center;
 }
