@@ -1,114 +1,125 @@
-import { showLoading, removeLoading } from './loading.js';
-import { testPoetry, testRewrite } from './testObject.js';
+import { fetchPoetry } from "./poem.js";
 
+const sectionBlocks = document.querySelector('.blocks');
+const blocks = document.querySelectorAll('.block');
+const sectionLanding = document.querySelector('.landing');
+const headingGenre = document.querySelector('.heading-genre');
+const sectionGenre = document.querySelector('.genres');
+const genreItems = document.querySelectorAll('section.genres ul li');
+const nextBtn = document.querySelector('.nextBtn');
 const main = document.querySelector('main');
-const aside = document.querySelector('aside');
+const headingThemes = document.querySelector('.heading-themes');
+const body = document.querySelector('body');
+const sectionThemes = document.querySelector('.themes');
+const themeItems = document.querySelectorAll('section.themes ul li');
+const finalNextBtn = document.querySelector('.finalNextBtn');
+const sectionPoem = document.querySelector('.poem');
 
-const poetryButton = document.querySelector('button:first-of-type');
-const type = document.querySelector('label:first-of-type input');
-const theme = document.querySelector('label:last-of-type input');
+console.log(sectionPoem);
 
-const output = document.querySelector('p');
+let genre = '';
+let themes = [];
 
-let paragraphString;
+nextBtn.addEventListener('click', () => {
 
-const displayPoetry = (data) => {
-    paragraphString = '';
+    headingGenre.classList.add('fade-out');
+    sectionGenre.classList.add('out-screen');
 
-    console.log('displayPoetry', data);
-    const { paragraph, keywords } = data;
-
-    const cutParagraph = paragraph.split(' ');
-    cutParagraph.forEach(word => {
-        const keyword = keywords.find(keyword => keyword.keyword === word);
-        if (keyword) {
-            paragraphString += `
-            <span class="keyword" data-alternatives="${keyword.alternatives.join(',')}">${word}</span>
-            `;
-        } else {
-            paragraphString += `${word} `;
-        }
-    });
-    output.innerHTML = paragraphString.trim();
-
-    const spans = output.querySelectorAll('span');
-    spans.forEach(span => {
-        span.addEventListener('click', showWordAlternatives);
-    });
-}
-
-const replaceWord = async (e) => {
-
-    const item = e.target;
-    const oldWord = item.dataset.oldWord;
-    const newWord = item.textContent;
-
-    // const response = await fetch('/api/rewrite', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //         oldWord,
-    //         newWord,
-    //         paragraph: output.textContent,
-    //     }),
-    // })
-
-    // const { data } = await response.json();
-    // displayPoetry(data);
-
-    displayPoetry(testRewrite);
-}
-
-const showWordAlternatives = (e) => {
-    aside.innerHTML = '';
-
-    const { alternatives } = e.target.dataset;
-    const alternativesArray = alternatives.split(',');
-
-    // create element
-    const ul = document.createElement('ul');
-    alternativesArray.forEach(alternative => {
-        const li = document.createElement('li');
-        li.textContent = alternative;
-        li.dataset.oldWord = e.target.textContent.trim();
-        ul.appendChild(li);
-    });
-
-    aside.innerHTML = ul.outerHTML;
-    main.appendChild(aside);
-
-    const replacements = document.querySelectorAll('aside ul li');
-    replacements.forEach(replacement => {
-        replacement.addEventListener('click', replaceWord);
-    });
-}
-
-const fetchPoetry = async () => {
-
-    // const response = await fetch('/api/poetry', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //         type: type.value,
-    //         theme: theme.value,
-    //     }),
-    // })
-
-    // const { data } = await response.json();
-    // console.log('fetchPoetry', data);
-    // displayPoetry(data)
-    const keywords = theme.value.split(' ');
-    showLoading(keywords);
     setTimeout(() => {
-        displayPoetry(testPoetry);
-        removeLoading();
-    }, 10000);
+        headingGenre.classList.add('remove');
+        sectionGenre.classList.add('remove');
+
+        nextBtn.classList.add('fade-out');
+
+        headingThemes.classList.add('block');
+        setTimeout(() => {
+            headingThemes.classList.add('fade-in');
+            nextBtn.classList.add('remove');
+            finalNextBtn.classList.add('block');
+
+            setTimeout(() => {
+                sectionThemes.classList.add('fall');
+            }, 1000);
+        }, 1000);
+    }, 1800);
+});
+
+finalNextBtn.addEventListener('click', () => {
+    headingThemes.classList.add('fade-out');
+    sectionThemes.classList.add('out-screen');
+
+    setTimeout(() => {
+        headingThemes.classList.add('remove');
+        sectionThemes.classList.add('remove');
+
+        setTimeout(() => {
+            sectionPoem.classList.add('show');
+
+            console.log(themes);
+            fetchPoetry(genre, themes);
+        }, 1000);
+    }, 1800);
+});
+
+const resetGenreItems = () => {
+    genreItems.forEach(genreItem => {
+        genreItem.classList.remove('active');
+        body.classList.remove(genreItem.dataset.genreName);
+    })
 }
 
-// poetryButton.addEventListener('click', fetchPoetry);
-// window.addEventListener('DOMContentLoaded', makeBubbles);
-// window.addEventListener('click', bubbleJump);
+genreItems.forEach(genreItem => {
+    genreItem.addEventListener('click', (e) => {
+        console.log(e.target.dataset);
+        resetGenreItems();
+        const name = e.target.dataset.genreName;
+        genre = name;
+        body.classList.add(name);
+        genreItem.classList.add('active');
+        nextBtn.classList.add('fade-in');
+    });
+});
+
+themeItems.forEach(themeItem => {
+    themeItem.addEventListener('click', (e) => {
+
+        if (!themes.includes(e.target.dataset.themeName)) {
+            themes.push(e.target.dataset.themeName);
+            themeItem.classList.add('active');
+            finalNextBtn.classList.add('fade-in');
+            return;
+        } else {
+            themes = themes.filter(theme => theme !== e.target.dataset.themeName);
+            themeItem.classList.remove('active');
+        }
+        console.log(genre);
+        console.log(themes);
+    });
+});
+
+sectionBlocks.addEventListener('click', () => {
+    sectionLanding.classList.add('fade-out');
+
+    blocks.forEach(block => {
+        block.classList.add('fall');
+
+        sectionBlocks.addEventListener('animationend', () => {
+            sectionBlocks.classList.add('remove');
+            sectionLanding.classList.add('remove');
+
+            main.classList.add('flex');
+            headingGenre.classList.add('block');
+
+            setTimeout(() => {
+                headingGenre.classList.add('fade-in');
+
+                setTimeout(() => {
+                    sectionGenre.classList.add('fall');
+                    console.log("nu moeten de genres komen");
+                }, 1000);
+            }, 1000);
+        });
+
+    });
+    console.log("nu wordt er op mij geklikt")
+});
