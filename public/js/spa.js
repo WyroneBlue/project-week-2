@@ -8,7 +8,10 @@ const nextBtn = document.querySelector('.nextBtn');
 const main = document.querySelector('main');
 const headingThemes = document.querySelector('.heading-themes');
 const body = document.querySelector('body');
-console.log(sectionBlocks);
+const sectionThemes = document.querySelector('.themes');
+const themeItems = document.querySelectorAll('section.themes ul li');
+
+console.log(themeItems);
 
 let genre = '';
 let themes = [];
@@ -26,6 +29,10 @@ nextBtn.addEventListener('click', () => {
         headingThemes.classList.add('block');
         setTimeout(() => {
             headingThemes.classList.add('fade-in');
+
+            setTimeout(() => {
+                sectionThemes.classList.add('fall');
+            }, 1000);
         }, 1000);
     }, 1800);
 });
@@ -34,6 +41,12 @@ const resetGenreItems = () => {
     genreItems.forEach(genreItem => {
         genreItem.classList.remove('active');
         body.classList.remove(genreItem.dataset.genreName);
+    })
+}
+
+const resetThemeItems = () => {
+    themeItems.forEach(themeItem => {
+        themeItem.classList.remove('active');
     })
 }
 
@@ -46,6 +59,30 @@ genreItems.forEach(genreItem => {
         body.classList.add(name);
         genreItem.classList.add('active');
         nextBtn.classList.add('fade-in');
+    });
+});
+
+themeItems.forEach(themeItem => {
+    themeItem.addEventListener('click', (e) => {
+        resetThemeItems();
+
+        if (!themes.includes(e.target.dataset.themeName)) {
+            themes.push(e.target.dataset.themeName);
+            themeItem.classList.add('active');
+            return;
+        }else{
+            themes.filter(theme => theme !== e.target.dataset.themeName);
+            themeItem.classList.remove('active');
+        }
+
+
+
+
+        // if(themes.length > 0){
+        //     const name = e.target.dataset.themeName;
+        //     console.log(name);
+        //     themeItem.classList.add('active');
+        // }
     });
 });
 

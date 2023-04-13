@@ -109,6 +109,6 @@ const fetchPoetry = async () => {
     }, 10000);
 }
 
-poetryButton.addEventListener('click', fetchPoetry);
+// poetryButton.addEventListener('click', fetchPoetry);
 // window.addEventListener('DOMContentLoaded', makeBubbles);
 // window.addEventListener('click', bubbleJump);

@@ -21,3 +21,29 @@ section.themes{
     transform: translateY(100vh);
     transition: 1.7s;
 }
+
+section.themes ul{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+
+}
+
+section.themes ul li{
+    color: black;
+    background-color: white;
+    padding: 40px;
+    font-size: 2em;
+    font-weight: 600;
+    flex-grow: 1;
+    display: flex;
+    flex-grow: 1;
+}
+
+section.themes ul li.active{
+    opacity: 0.5;
+}
+
+section.themes.fall{
+    transform: translateY(0px);
+}
