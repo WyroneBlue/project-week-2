@@ -1,4 +1,20 @@
 :root{
+    --primary-font-family: 'SuisseIntl';
+    --secondary-font-family: 'Suisse Works';
+
+
+    --primary-text-color: #212121;
+    --secondary-text-color: white;
+
+
     --bubble-top: 0;
     --bubble-left: 0;
+
+    --brown: #BCAAA4;
+    --purple: #B39DDB;
+    --red: #F44336;
+    --ekru: #FFFFFF;
+
+    --border-radius-circle: 50%;
+    --border-radius-pill: 99999px;
 }
