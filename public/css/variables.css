@@ -1,6 +1,6 @@
 :root{
-    --primary-font-family: 'SuisseIntl';
-    --secondary-font-family: 'Suisse Works';
+    --primary-font-family: 'SuisseIntl', sans-serif;
+    --secondary-font-family: 'Suisse Works', serif;
 
 
     --primary-text-color: #212121;
@@ -11,9 +11,12 @@
     --bubble-left: 0;
 
     --brown: #BCAAA4;
+    --dark-purple: #352D45;
     --purple: #B39DDB;
     --red: #F44336;
     --ekru: #FFFFFF;
+    --okre: #BFCCB5;
+    --blue: #2F58CD;
 
     --border-radius-circle: 50%;
     --border-radius-pill: 99999px;

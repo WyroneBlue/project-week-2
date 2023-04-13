@@ -3,7 +3,7 @@
 /* ************ */
 
 main > section.landing{
-    padding: 0;
+    padding: 2rem 0;
 
     z-index: 99;
 
@@ -16,15 +16,19 @@ main > section.landing{
     transition: 1.7s;
 
     width: 100%;
-
-    background-color: red;
 }
 
-main > section.landing h1{
+
+/* ****************** */
+/* Introduction Title */
+/* ****************** */
+
+main > section.landing h1 {
     padding-bottom: .2rem;
     margin: 0;
 
     font-family: var(--primary-font-family);
+    font-weight: 100;
 
     font-size: clamp(4rem, 2vw, 8rem);
 
@@ -37,7 +41,7 @@ main > section.landing h1 span {
 
 main > section.landing p {
     font-family: var(--primary-font-family);
-    font-size: clamp(1rem, 1.6vw, 2rem);
+    font-size: clamp(1rem, 1.4vw, 1.6rem);
 
     text-align: center;
 
@@ -58,10 +62,6 @@ section.landing.remove{
 section.blocks{
     width: 100%;
     height: 100%;
-
-    gap: 30px;
-    
-    background-color: blue;
 }
 
 section.blocks.remove{
@@ -84,27 +84,32 @@ section.blocks div.block p {
 /* ************************* */
 
 
-/* ****** */
-/* Blok 1 */
-/* ****** */
+
+
+/* *********************** */
+/* Linksboven, beige blok */
+/* *********************** */
 
 section.blocks div.block:nth-child(1) {
-    transform: rotate(30deg);
+    top: 24vmin;
+    left: 4vmin;
+
+    transform: rotate(10deg);
 
     display: flex;
-
-    display: none;
 
     justify-content: flex-start;
     align-items: flex-end;
 
-    width: 50vmin;
+    width: 24vw;
     aspect-ratio: 2 / 1;
 
     background-color: var(--brown);
 }
 
 section.blocks div.block:nth-child(1) {
+    padding-left: 1rem;
+
     font-family: var(--secondary-font-family);
     font-size: clamp(2rem, 4vw, 6rem);
 
@@ -112,23 +117,28 @@ section.blocks div.block:nth-child(1) {
 }
 
 
-
+/* ********************* */
 /* Rode cirkel met pijl. */
+/* ********************* */
+
 section.blocks div.block:nth-child(2) {
+    top: 28vmin;
+    left: 56vmin;
+
+    transform: rotate(45deg);
+
     display: grid;
 
     place-content: center;
 
     color: black;
 
-    width: 20vmin;
+    width: 9.6vw;
     aspect-ratio: 1;
 
     border-radius: 50%;
 
-    background-color: var(--red);
-
-    display: none;
+    background-color: var(--dark-purple);
 }
 
 section.blocks div.block:nth-child(2) svg {
@@ -138,11 +148,17 @@ section.blocks div.block:nth-child(2) svg {
 }
 
 
-/* Oranje pilvormige blok. */
-section.blocks div.block:nth-child(3) {
-    display: grid;
+/* *********************** */
+/* Rechtsboven, oranje pil */
+/* *********************** */
 
-    display: none;
+section.blocks div.block:nth-child(3) {
+    transform: rotate(-10deg);
+
+    top: 26vmin;
+    right: 40vmin;
+
+    display: grid;
 
     place-content: center;
 
@@ -151,28 +167,33 @@ section.blocks div.block:nth-child(3) {
 
     color: black;
 
-    width: 50vmin;
-    aspect-ratio: 2 / 1;
+    width: 19.2vw;
+    aspect-ratio: 2.5 / 1.25;
 
     border-radius: var(--border-radius-pill);
 
-    background-color: var(--red);
+    background-color: var(--blue);
 }
 
 section.blocks div.block:nth-child(3) p {
-    font-family: var(--secondary-font-family);
-    font-size: clamp(1rem, 1vw, 1.6rem);
+    font-family: var(--primary-font-family);
+    font-size: .8rem;
 
     text-align: center;
+    text-transform: uppercase;
+
+    line-height: 1.4;
 
     color: var(--secondary-text-color);
 }
 
 
-section.blocks div.block:nth-child(4){
+section.blocks div.block:nth-child(4) {
+    top: 48vmin;
+    left: 2vmin;
+
     display: flex;
 
-    display: none;
 
     flex-direction: column;
 
@@ -183,7 +204,7 @@ section.blocks div.block:nth-child(4){
 
     color: black;
 
-    width: 20vmin;
+    width: 9.6vw;
     aspect-ratio: 1;
 
     border-radius: 50%;
@@ -193,6 +214,7 @@ section.blocks div.block:nth-child(4){
 
 section.blocks div.block:nth-child(4) p {
     font-family: var(--secondary-font-family);
+    font-size: 1.6rem;
 }
 
 section.blocks div.block:nth-child(4) svg {
@@ -200,41 +222,64 @@ section.blocks div.block:nth-child(4) svg {
 }
 
 
+/* ********************** */
+/* Linksonder, beige blok */
+/* ********************** */
 
 section.blocks div.block:nth-child(5) {
-    display: flex;
+    transform: rotate(-10deg);
 
-    display: none;
+    bottom: 8vmin;
+    left: 4vmin;
+
+    display: flex;
 
     align-items: center;
     justify-content: center;
 
     color: black;
 
-    width: 50vmin;
-    aspect-ratio: 2 / 1;
+    width: 28.8vw;
+    aspect-ratio: 2 / .75;
 
-    background-color: var(--brown);
+    border-radius: var(--border-radius-pill);
+
+    background-color: var(--okre);
 }
 
 section.blocks div.block:nth-child(5) p {
+    font-family: var(--primary-font-family);
+
+
     text-align: center;
+    text-transform: uppercase;
+
+    line-height: 1.4;
+
+    max-width: 24rem;
 }
 
 
+/* ******************* */
+/* Midden, ekru cirkel */
+/* ******************* */
 
-/* Grote cirkel en die dingen daar. */
 section.blocks div.block:nth-child(6) {
-    display: flex;
+    --centered-circle-width: 26.4vw;
 
-    display: none;
+    transform: rotate(-10deg);
+
+    bottom: 4vmin;
+    left: calc(50% - var(--centered-circle-width) / 2);
+
+    display: flex;
 
     align-items: center;
     justify-content: center;
 
     color: black;
 
-    width: 50vmin;
+    width: var(--centered-circle-width);
     aspect-ratio: 1;
 
     border-radius: var(--border-radius-circle);
@@ -244,6 +289,7 @@ section.blocks div.block:nth-child(6) {
 
 section.blocks div.block:nth-child(6) p {
     font-family: var(--primary-font-family);
+    font-size: 4rem;
 }
 
 section.blocks div.block:nth-child(6) p span {
@@ -254,35 +300,41 @@ section.blocks div.block:nth-child(6) p span {
 
 
 
+/* **************************** */
+/* Rechtsonder paarse rechthoek */
+/* **************************** */
 
-/* Grote cirkel en die dingen daar. */
 section.blocks div.block:nth-child(7) {
-    display: flex;
+    transform: rotate(-50deg);
 
-    display: none;
+    bottom: 2vmin;
+    right: 32vmin;
+
+    display: flex;
 
     align-items: flex-end;
     justify-content: center;
 
     color: black;
 
-    width: 20vmin;
+    width: 24vmin;
     aspect-ratio: 1 / 2;
 
-    background-color: var(--ekru);
+    background-color: var(--purple);
 }
 
 section.blocks div.block:nth-child(7) p {
-    font-family: var(--primary-font-family);
-    font-size: 3rem; /* Tijdelijk */
+    font-family: var(--secondary-font-family);
+    font-size: 4rem; /* Tijdelijk */
 }
 
 
 
 section.blocks div.block:nth-child(8){
-    display: flex;
+    top: 42vmin;
+    right: 8vmin;
 
-    display: none;
+    display: flex;
 
     flex-direction: column;
 
@@ -291,21 +343,27 @@ section.blocks div.block:nth-child(8){
 
     gap: 1rem;
 
-    color: black;
+    color: var(--purple);
 
-    width: 20vmin;
+    width: 9.6vw;
     aspect-ratio: 1;
 
     border-radius: 50%;
 
-    background-color: var(--red);
+    background-color: var(--dark-purple);
 }
 
 section.blocks div.block:nth-child(8) p {
     font-family: var(--secondary-font-family);
+    font-size: 1.6rem;
 }
 
 section.blocks div.block:nth-child(8) svg {
+    transform: rotate(180deg);
+
+    stroke: var(--purple);
+    fill: var(--purple);
+
     width: 2rem;
 }
 
