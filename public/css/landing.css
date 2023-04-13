@@ -36,6 +36,7 @@ div.block{
     background-color: white;
     height: 100px;
     width: 100px;
+    padding: 1rem;
     position: absolute;
 }
 

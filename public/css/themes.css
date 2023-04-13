@@ -19,6 +19,7 @@ section.heading-themes h2{
 }
 
 section.themes{
+    opacity: 0;
     transform: translateY(100vh);
     transition: 1.7s;
 }
@@ -55,14 +56,15 @@ section.themes ul li.active{
 }
 
 section.themes.fall{
+    opacity: 1;
     transform: translateY(0px);
 }
 
 section.heading-themes.remove{
     display: none;
  }
- 
- 
+
+
  section.heading-themes.fade-out{
      opacity: 0;
      transform: translateY(150px);

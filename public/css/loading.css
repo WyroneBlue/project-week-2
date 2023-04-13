@@ -7,7 +7,7 @@
     min-width: fit-content;
     width: 20vw;
     height: 100px;
-    padding: 5px 10pxs;
+    padding: 5px 10px;
     background-color: lightblue;
     color: black;
     border-radius: 50px;
@@ -17,8 +17,8 @@
 }
 
 .jump{
-    animation: jump 1s;
-    animation-fill-mode: forwards;
+    cursor: default;
+    animation: jump 1s ease-out forwards;
 }
 
 @keyframes jump {
@@ -40,19 +40,57 @@
 section.loading{
     position: fixed;
     inset: 0;
-    display: none;
-    background-color: transparent;
-    transform: translateY(-100%);
-    opacity: .5;
-    transition: transform 0.5s ease-in, opacity 0.5s ease, background-color 0.5s ease 0.5s;
+
+    display: grid;
+    place-content: center;
+    background-color: #F44336;
+    color: #3B0400;
+    z-index: -1;
+    pointer-events: none;
+    transform: translateY(-100vh);
+    transition: transform 0.5s ease-in;
 }
 
 section.loading.show{
-    display: block;
-    background-color: rgba(0, 0, 0, .8);
-    opacity: 1;
     transform: translateY(0);
     z-index: 1;
+    pointer-events: all;
+}
+
+section.loading.show h3{
+    font-size: 3em;
+    opacity: 0;
+    animation: hint 4s ease-out .5s forwards;
+}
+
+section.loading.show h3 em{
+    font-style: normal;
+    font-family: var(--secondary-font-family);
+    display: inline-block;
+    transform: rotate(5deg);
+}
+
+section.loading.show p{
+    text-align: center;
+    font-size: 2em;
+    opacity: 0;
+    animation: hint 4s ease-out 5s infinite;
+}
+
+@keyframes hint {
+    0%{
+        transform: translateY(10px);
+    }
+
+    40%, 95%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100%{
+        opacity: 0;
+        transform: translateY(10px);
+    }
 }
 
 .jump::before{
@@ -88,4 +126,37 @@ main > section{
 
 main:has(section.loading.show) > section:first-of-type{
     opacity: 0;
+}
+
+section.loading.show div{
+    content: '';
+    position: absolute;
+    top: var(--loading-top);
+    left: var(--loading-left);
+    width: 15vw;
+    height: 15vw;
+    border: 1vw solid white;
+    border-radius: 50%;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+    transition: left 0.5s ease-out, top 0.5s ease-out;
+    animation: loading 1s ease-out 5s forwards;
+}
+
+@keyframes loading {
+    0%{
+        transform: scale(0);
+    }
+    70%{
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    90%{
+        transform: scale(0.9);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
 }
