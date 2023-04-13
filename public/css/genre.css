@@ -1,0 +1,89 @@
+body.romantic{
+    background-image: url('../assets/svg/romantic.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body.tragedy{
+    background-image: url('../assets/svg/tragedy.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section.heading-genre{
+    display: none;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+section.heading-genre.fade-in{
+    opacity: 1;
+    transform: translateY(-100px);
+}
+
+section.heading-genre.block{
+    display: block;
+}
+
+section.heading-genre.remove{
+    display: none;
+}
+
+section.heading-genre.fade-out{
+    opacity: 0;
+    transform: translateY(150px);
+    transition: 1.7s;
+}
+
+section.heading-genre h2{
+    font-size: 4em;
+    font-weight: 400;
+}
+
+section.genres{
+    transform: translateY(-1500px);
+    transition: 1.7s;
+}
+
+section.genres.remove{
+    display: none;
+}
+
+section.genres.fall{
+    transform: translateY(0px);
+}
+section.genres.out-screen{
+    animation: fall 2s ease-in;
+    animation-fill-mode: forwards;
+}
+
+section.genres ul{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+section.genres ul li{
+    color: black;
+    background-color: white;
+    padding: 40px;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+section.genres ul li.active{
+    opacity: 0.5;
+}
+
+section.genres ul li:nth-of-type(1){
+    border-radius: 90px;
+}
+
+section.genres ul li:nth-of-type(2){
+    border-radius: 90px 0px 90px 90px;
+}
+
+section.genres ul li:nth-of-type(4){
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+}
