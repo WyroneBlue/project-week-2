@@ -10,11 +10,14 @@ const headingThemes = document.querySelector('.heading-themes');
 const body = document.querySelector('body');
 const sectionThemes = document.querySelector('.themes');
 const themeItems = document.querySelectorAll('section.themes ul li');
+const finalNextBtn = document.querySelector('.finalNextBtn');
+const sectionLoading = document.querySelector('.loading');
 
-console.log(themeItems);
+console.log(sectionLoading);
 
 let genre = '';
 let themes = [];
+
 nextBtn.addEventListener('click', () => {
 
     headingGenre.classList.add('fade-out');
@@ -29,10 +32,26 @@ nextBtn.addEventListener('click', () => {
         headingThemes.classList.add('block');
         setTimeout(() => {
             headingThemes.classList.add('fade-in');
+            nextBtn.classList.add('remove');
+            finalNextBtn.classList.add('block');
 
             setTimeout(() => {
                 sectionThemes.classList.add('fall');
             }, 1000);
+        }, 1000);
+    }, 1800);
+});
+
+finalNextBtn.addEventListener('click', () => {
+    headingThemes.classList.add('fade-out');
+    sectionThemes.classList.add('out-screen');
+
+    setTimeout(() => {
+        headingThemes.classList.add('remove');
+        sectionThemes.classList.add('remove');
+
+        setTimeout(() => {
+            sectionLoading.classList.add('show');
         }, 1000);
     }, 1800);
 });
@@ -64,11 +83,12 @@ genreItems.forEach(genreItem => {
 
 themeItems.forEach(themeItem => {
     themeItem.addEventListener('click', (e) => {
-        resetThemeItems();
+        // resetThemeItems();
 
         if (!themes.includes(e.target.dataset.themeName)) {
             themes.push(e.target.dataset.themeName);
             themeItem.classList.add('active');
+            finalNextBtn.classList.add('fade-in');
             return;
         }else{
             themes.filter(theme => theme !== e.target.dataset.themeName);

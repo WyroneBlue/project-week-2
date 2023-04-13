@@ -41,6 +41,11 @@ section.loading{
     transform: translateY(-100%);
     opacity: .5;
     transition: transform 0.5s ease-in, opacity 0.5s ease;
+    display: none;
+}
+
+section.loading.show{
+    display: block;
 }
 
 section.loading.show{

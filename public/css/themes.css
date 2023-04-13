@@ -3,6 +3,7 @@ section.heading-themes{
     opacity: 0;
     transition: 0.4s;
 }
+
 section.heading-themes.fade-in{
     opacity: 1;
     transform: translateY(-100px);
@@ -20,6 +21,15 @@ section.heading-themes h2{
 section.themes{
     transform: translateY(100vh);
     transition: 1.7s;
+}
+
+section.themes.remove{
+    display: none;
+}
+
+section.themes.out-screen{
+    animation: fall 2s ease-in;
+    animation-fill-mode: forwards;
 }
 
 section.themes ul{
@@ -47,3 +57,14 @@ section.themes ul li.active{
 section.themes.fall{
     transform: translateY(0px);
 }
+
+section.heading-themes.remove{
+    display: none;
+ }
+ 
+ 
+ section.heading-themes.fade-out{
+     opacity: 0;
+     transform: translateY(150px);
+     transition: 1.7s;
+ }
