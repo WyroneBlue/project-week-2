@@ -8,12 +8,12 @@ const nextBtn = document.querySelector('.nextBtn');
 const main = document.querySelector('main');
 const headingThemes = document.querySelector('.heading-themes');
 const body = document.querySelector('body');
+console.log(sectionBlocks);
 
-
-console.log(headingThemes);
-
-
+let genre = '';
+let themes = [];
 nextBtn.addEventListener('click', () => {
+
     headingGenre.classList.add('fade-out');
     sectionGenre.classList.add('out-screen');
 
@@ -30,13 +30,21 @@ nextBtn.addEventListener('click', () => {
     }, 1800);
 });
 
+const resetGenreItems = () => {
+    genreItems.forEach(genreItem => {
+        genreItem.classList.remove('active');
+        body.classList.remove(genreItem.dataset.genreName);
+    })
+}
+
 genreItems.forEach(genreItem => {
     genreItem.addEventListener('click', (e) => {
-        const style = e.target.dataset.style;
-
-        body.classList.toggle(style);
-
-        genreItem.classList.toggle('active');
+        console.log(e.target.dataset);
+        resetGenreItems();
+        const name = e.target.dataset.genreName;
+        genre = name;
+        body.classList.add(name);
+        genreItem.classList.add('active');
         nextBtn.classList.add('fade-in');
     });
 });
