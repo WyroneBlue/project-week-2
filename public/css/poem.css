@@ -10,7 +10,6 @@ section.poem.fade-in{
     place-content: center;
 }
 
-
 main:has(aside ul) section.poem{
     position: static;
 }
