@@ -1,0 +1,23 @@
+section.heading-themes{
+    display: none;
+    opacity: 0;
+    transition: 0.4s;
+}
+section.heading-themes.fade-in{
+    opacity: 1;
+    transform: translateY(-100px);
+}
+
+section.heading-themes.block{
+    display: block;
+}
+
+section.heading-themes h2{
+    font-size: 4em;
+    font-weight: 400;
+}
+
+section.themes{
+    transform: translateY(100vh);
+    transition: 1.7s;
+}

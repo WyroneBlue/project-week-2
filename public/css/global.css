@@ -1,0 +1,62 @@
+body{
+    font-family: 'Raleway', sans-serif;
+    background-color: black;
+    color: white;
+    height: 100vh;
+    transition: 1s;
+}
+
+main{
+    padding: 10px 20px;
+    height: 100%;
+    overflow: hidden;
+}
+
+aside ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+li{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    transition: 0.4s;
+}
+
+div.nextBtn.fade-in{
+    opacity: 1;
+}
+
+div.nextBtn.fade-out{
+    opacity: 0;
+}
+
+div.nextBtn{
+    position:absolute;
+    background-color: white;
+    transition: 0.4s;
+    width: clamp(50px, 10vw, 100px);
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    bottom: 15px;
+    right: 15px;
+    opacity: 0;
+}
+
+div.nextBtn img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes fall{
+    0%{
+
+    }
+    100%{
+        transform: translateY(1000px);
+    }
+}

@@ -1,0 +1,56 @@
+section.poem{
+    position: absolute;
+    inset: 0;
+
+    display: none;
+}
+
+section.poem.fade-in{
+    display: grid;
+    place-content: center;
+}
+
+
+main:has(aside ul) section.poem{
+    position: static;
+}
+
+article {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+p{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    max-width: 300px;
+}
+
+.keyword {
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+    border-radius: 20px 20px 20px 0;
+    animation: hover 1s infinite alternate;
+}
+
+@keyframes hover {
+    0% {
+        transform: translateY(3px);
+    }
+    100% {
+        transform: translateY(-3px);
+    }
+}
+
+ul li {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+}
