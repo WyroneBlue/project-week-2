@@ -9,6 +9,7 @@ const output = document.querySelector('.poem p');
 let paragraphString;
 
 let chosenThemes = '';
+let newWord = '';
 
 const displayPoetry = (data) => {
     paragraphString = '';
@@ -35,11 +36,31 @@ const displayPoetry = (data) => {
     });
 }
 
-export const replaceWord = async (e) => {
+const selectWord = (e) => {
+    console.log(e.target);
+    const siblings = e.target.parentElement.childNodes;
+    console.log(siblings);
+    siblings.forEach(sibling => {
+        console.log(sibling);
+        sibling.classList.remove('active');
+    })
+
+    newWord = e.target.textContent;
+    e.target.classList.add('active');
+}
+
+const hideAside = () => {
+    aside.classList.remove('show');
+    aside.innerHTML = '';
+    console.log(aside);
+}
+
+export const rewritePoem = async (e) => {
+
+    hideAside();
 
     const item = e.target;
     const oldWord = item.dataset.oldWord;
-    const newWord = item.textContent;
 
     // const response = await fetch('/api/rewrite', {
     //     method: 'POST',
@@ -69,6 +90,18 @@ export const replaceWord = async (e) => {
 }
 
 const showWordAlternatives = (e) => {
+
+    console.log(e.target.parentElement.childNodes);
+    const siblings = e.target.parentElement.childNodes;
+    siblings.forEach(child => {
+        if(child.classList){
+            child.classList.remove('active');
+        }
+    });
+
+    const currentWord = e.target;
+    currentWord.classList.add('active');
+
     aside.innerHTML = '';
 
     const { alternatives } = e.target.dataset;
@@ -77,18 +110,38 @@ const showWordAlternatives = (e) => {
     // create element
     const ul = document.createElement('ul');
     alternativesArray.forEach(alternative => {
+
         const li = document.createElement('li');
         li.textContent = alternative;
         li.dataset.oldWord = e.target.textContent.trim();
         ul.appendChild(li);
     });
 
-    aside.innerHTML = ul.outerHTML;
+    aside.classList.add('show');
+
+    // create h3
+    const h3 = document.createElement('h3');
+    h3.textContent = 'Kies een alternatief';
+    aside.appendChild(h3);
+
+    // append ul
+    aside.appendChild(ul);
+
+    // create button
+    const button = document.createElement('button');
+    button.textContent = 'Schrijf nieuw gedicht';
+
+    // append button
+    aside.appendChild(button);
+
+    // add event listener
+    button.addEventListener('click', rewritePoem);
+
     main.appendChild(aside);
 
     const replacements = document.querySelectorAll('aside ul li');
     replacements.forEach(replacement => {
-        replacement.addEventListener('click', replaceWord);
+        replacement.addEventListener('click', selectWord);
     });
 }
 
@@ -117,9 +170,13 @@ export const fetchPoetry = async (genre, themes) => {
     setTimeout(() => {
         displayPoetry(testPoetry);
         removeLoading();
-    }, 3000);
+    }, 10000);
 }
+// fetchPoetry('poem', ['love', 'hate', 'death']);
 
-// poetryButton.addEventListener('click', fetchPoetry);
-// window.addEventListener('DOMContentLoaded', makeBubbles);
-// window.addEventListener('click', bubbleJump);
+window.addEventListener('click', (event) => {
+    if (aside.classList.contains('show') && event.target.tagName === 'MAIN') {
+        console.log('hide');
+        hideAside();
+    }
+});
