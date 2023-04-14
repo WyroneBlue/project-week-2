@@ -1,6 +1,25 @@
 :root{
+    --primary-font-family: 'SuisseIntl', sans-serif;
+    --secondary-font-family: 'Suisse Works', serif;
+
+
+    --primary-text-color: #212121;
+    --secondary-text-color: white;
+
+
     --bubble-top: 0;
     --bubble-left: 0;
+
+    --brown: #BCAAA4;
+    --dark-purple: #352D45;
+    --purple: #B39DDB;
+    --red: #F44336;
+    --ekru: #FFFFFF;
+    --okre: #BFCCB5;
+    --blue: #2F58CD;
+
+    --border-radius-circle: 50%;
+    --border-radius-pill: 99999px;
     --comedy-bg-color: #FFEB3B;
     --haiku-bg-color: #8BC34A;
     --snelsonnet-bg-color: #3F51B5;

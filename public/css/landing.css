@@ -1,16 +1,52 @@
+/* ************ */
+/* Landing Page */
+/* ************ */
+
 main > section.landing{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
+    padding: 2rem 0;
+
+    z-index: 99;
+
+    position: fixed;
+
+    display: grid;
+    
+    place-items: center;
+
     transition: 1.7s;
+
+    width: 100%;
 }
 
-main > section.landing h1{
-    font-size: 4em;
-    font-weight: 400;
+
+/* ****************** */
+/* Introduction Title */
+/* ****************** */
+
+main > section.landing h1 {
+    padding-bottom: .2rem;
+    margin: 0;
+
+    font-family: var(--primary-font-family);
+    font-weight: 100;
+
+    font-size: clamp(4rem, 2vw, 8rem);
+
+    text-align: center;
+}
+
+main > section.landing h1 span {
+    font-family: var(--secondary-font-family);
 }
 
 main > section.landing p {
+    font-family: var(--primary-font-family);
+    font-size: clamp(1rem, 1.4vw, 1.6rem);
+
+    text-align: center;
+
+    line-height: 1.4;
+
     max-width: 20em;
 }
 
@@ -24,8 +60,8 @@ section.landing.remove{
 }
 
 section.blocks{
-    height: 50%;
-    gap: 30px;
+    width: 100%;
+    height: 100%;
 }
 
 section.blocks.remove{
@@ -33,69 +69,336 @@ section.blocks.remove{
 }
 
 div.block{
-    background-color: white;
-    height: 100px;
-    width: 100px;
     position: absolute;
 }
 
-section.blocks div.block:nth-child(1){
-    /* background-color: #f1c40f; */
-    top: 10px;
-    right: 319px;
-    height: 200px;
-    width: 400px;
+section.blocks div.block p {
+    padding: 0;
+    margin: 0;
 }
 
-section.blocks div.block:nth-child(2){
-    /* background-color: #e67e22; */
-    top: 600px;
-    left: 100px;
-    height: 200px;
-    transform: rotate(128deg);
+
+
+/* ************************* */
+/* Individuele stijl blokken */
+/* ************************* */
+
+
+
+
+/* *********************** */
+/* Linksboven, beige blok */
+/* *********************** */
+
+section.blocks div.block:nth-child(1) {
+    top: 24vmin;
+    left: 4vmin;
+
+    transform: rotate(10deg);
+
+    display: flex;
+
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    width: 24vw;
+    aspect-ratio: 2 / 1;
+
+    background-color: var(--brown);
 }
 
-section.blocks div.block:nth-child(3){
-    /* background-color: #e74c3c; */
-    top: 300px;
-    left: 100px;
-    height: 300px;
-    width: 300px;
+section.blocks div.block:nth-child(1) {
+    padding-left: 1rem;
+
+    font-family: var(--secondary-font-family);
+    font-size: clamp(2rem, 4vw, 6rem);
+
+    color: black;
+}
+
+
+/* ********************* */
+/* Rode cirkel met pijl. */
+/* ********************* */
+
+section.blocks div.block:nth-child(2) {
+    top: 28vmin;
+    left: 56vmin;
+
+    transform: rotate(45deg);
+
+    display: grid;
+
+    place-content: center;
+
+    color: black;
+
+    width: 9.6vw;
+    aspect-ratio: 1;
+
     border-radius: 50%;
+
+    background-color: var(--dark-purple);
 }
 
-section.blocks div.block:nth-child(4){
-    /* background-color: #9b59b6; */
+section.blocks div.block:nth-child(2) svg {
+    fill: black; 
+
+    width: 3rem;
+}
+
+
+/* *********************** */
+/* Rechtsboven, oranje pil */
+/* *********************** */
+
+section.blocks div.block:nth-child(3) {
+    transform: rotate(-10deg);
+
+    top: 26vmin;
+    right: 40vmin;
+
+    display: grid;
+
+    place-content: center;
+
+    font-family: var(--secondary-font-family);
+    font-size: clamp(2rem, 4vw,5rem);
+
+    color: black;
+
+    width: 19.2vw;
+    aspect-ratio: 2.5 / 1.25;
+
+    border-radius: var(--border-radius-pill);
+
+    background-color: var(--blue);
+}
+
+section.blocks div.block:nth-child(3) p {
+    font-family: var(--primary-font-family);
+    font-size: .8rem;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    line-height: 1.4;
+
+    color: var(--secondary-text-color);
+}
+
+
+section.blocks div.block:nth-child(4) {
+    top: 48vmin;
+    left: 2vmin;
+
+    display: flex;
+
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+
+    color: black;
+
+    width: 9.6vw;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background-color: var(--red);
+}
+
+section.blocks div.block:nth-child(4) p {
+    font-family: var(--secondary-font-family);
+    font-size: 1.6rem;
+}
+
+section.blocks div.block:nth-child(4) svg {
+    width: 2rem;
+}
+
+
+/* ********************** */
+/* Linksonder, beige blok */
+/* ********************** */
+
+section.blocks div.block:nth-child(5) {
+    transform: rotate(-10deg);
+
+    bottom: 8vmin;
+    left: 4vmin;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: black;
+
+    width: 28.8vw;
+    aspect-ratio: 2 / .75;
+
+    border-radius: var(--border-radius-pill);
+
+    background-color: var(--okre);
+}
+
+section.blocks div.block:nth-child(5) p {
+    font-family: var(--primary-font-family);
+
+
+    text-align: center;
+    text-transform: uppercase;
+
+    line-height: 1.4;
+
+    max-width: 24rem;
+}
+
+
+/* ******************* */
+/* Midden, ekru cirkel */
+/* ******************* */
+
+section.blocks div.block:nth-child(6) {
+    --centered-circle-width: 26.4vw;
+
+    transform: rotate(-10deg);
+
+    bottom: 4vmin;
+    left: calc(50% - var(--centered-circle-width) / 2);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: black;
+
+    width: var(--centered-circle-width);
+    aspect-ratio: 1;
+
+    border-radius: var(--border-radius-circle);
+
+    background-color: var(--ekru);
+}
+
+section.blocks div.block:nth-child(6) p {
+    font-family: var(--primary-font-family);
+    font-size: 4rem;
+}
+
+section.blocks div.block:nth-child(6) p span {
+    font-family: var(--secondary-font-family);
+}
+
+
+
+
+
+/* **************************** */
+/* Rechtsonder paarse rechthoek */
+/* **************************** */
+
+section.blocks div.block:nth-child(7) {
+    transform: rotate(-50deg);
+
+    bottom: 2vmin;
+    right: 32vmin;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    color: black;
+
+    width: 24vmin;
+    aspect-ratio: 1 / 2;
+
+    background-color: var(--purple);
+}
+
+section.blocks div.block:nth-child(7) p {
+    font-family: var(--secondary-font-family);
+    font-size: 4rem; /* Tijdelijk */
+}
+
+
+
+section.blocks div.block:nth-child(8){
+    top: 42vmin;
+    right: 8vmin;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+
+    color: var(--purple);
+
+    width: 9.6vw;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background-color: var(--dark-purple);
+}
+
+section.blocks div.block:nth-child(8) p {
+    font-family: var(--secondary-font-family);
+    font-size: 1.6rem;
+}
+
+section.blocks div.block:nth-child(8) svg {
+    transform: rotate(180deg);
+
+    stroke: var(--purple);
+    fill: var(--purple);
+
+    width: 2rem;
+}
+
+
+
+/* section.blocks div.block:nth-child(4){
     top: 230px;
     right: 704px;
     width: 500px;
     height: 500px;
     border-radius: 50%;
-}
+} */
 
+/* 
 section.blocks div.block:nth-child(5){
-    /* background-color: #3498db; */
     top: 10px;
     right: 10px;
-}
+} */
 
-section.blocks div.block:nth-child(6){
-    /* background-color: #2ecc71; */
+/* section.blocks div.block:nth-child(6){
     top: 200px;
     right: 250px;
     height: 600px;
     width: 200px;
     transform: rotate(45deg);
-}
+} */
 
-section.blocks div.block:nth-child(7){
+/* section.blocks div.block:nth-child(7){
     background-color: white;
     height: 200px;
     width: 400px;
     top: 90px;
     left: 100px;
     transform: rotate(15deg);
-}
+} */
 
 
 div.block.fall{

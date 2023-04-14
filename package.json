@@ -28,5 +28,8 @@
     "nodemon": "^2.0.22",
     "openai": "^3.2.1"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
 }
