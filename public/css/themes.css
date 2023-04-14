@@ -3,6 +3,7 @@ section.heading-themes{
     opacity: 0;
     transition: 0.4s;
 }
+
 section.heading-themes.fade-in{
     opacity: 1;
     transform: translateY(-100px);
@@ -19,5 +20,52 @@ section.heading-themes h2{
 
 section.themes{
     transform: translateY(100vh);
+    
+}
+
+section.themes.remove{
+    display: none;
+}
+
+section.themes.out-screen{
+    animation: fall 2s ease-in;
+    animation-fill-mode: forwards;
+}
+
+section.themes ul{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+
+}
+
+section.themes ul li{
+    color: black;
+    background-color: white;
+    padding: 40px;
+    font-size: 2em;
+    font-weight: 600;
+    flex-grow: 1;
+    display: flex;
+    flex-grow: 1;
+}
+
+section.themes ul li.active{
+    opacity: 0.5;
+}
+
+section.themes.fall{
+    transform: translateY(0px);
     transition: 1.7s;
 }
+
+section.heading-themes.remove{
+    display: none;
+ }
+ 
+ 
+ section.heading-themes.fade-out{
+     opacity: 0;
+     transform: translateY(150px);
+     transition: 1.7s;
+ }
