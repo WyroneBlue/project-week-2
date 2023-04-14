@@ -15,8 +15,6 @@ const themeItems = document.querySelectorAll('section.themes ul li');
 const finalNextBtn = document.querySelector('.finalNextBtn');
 const sectionPoem = document.querySelector('.poem');
 
-console.log(sectionPoem);
-
 let genre = '';
 let themes = [];
 
@@ -56,7 +54,6 @@ finalNextBtn.addEventListener('click', () => {
             sectionPoem.classList.add('show');
             finalNextBtn.classList.add('remove');
 
-            console.log(themes);
             fetchPoetry(genre, themes);
         }, 1000);
     }, 1800);
@@ -71,7 +68,6 @@ const resetGenreItems = () => {
 
 genreItems.forEach(genreItem => {
     genreItem.addEventListener('click', (e) => {
-        console.log(e.target.dataset);
         resetGenreItems();
         const name = e.target.dataset.genreName;
         genre = name;
@@ -93,8 +89,6 @@ themeItems.forEach(themeItem => {
             themes = themes.filter(theme => theme !== e.target.dataset.themeName);
             themeItem.classList.remove('active');
         }
-        console.log(genre);
-        console.log(themes);
     });
 });
 
@@ -116,11 +110,9 @@ sectionBlocks.addEventListener('click', () => {
 
                 setTimeout(() => {
                     sectionGenre.classList.add('fall');
-                    console.log("nu moeten de genres komen");
                 }, 1000);
             }, 1000);
         });
 
     });
-    console.log("nu wordt er op mij geklikt")
 });

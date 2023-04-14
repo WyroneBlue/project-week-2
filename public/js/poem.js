@@ -14,7 +14,6 @@ let newWord = '';
 const displayPoetry = (data) => {
     paragraphString = '';
 
-    console.log('displayPoetry', data);
     const { paragraph, keywords } = data;
 
     const cutParagraph = paragraph.split(' ');
@@ -37,11 +36,8 @@ const displayPoetry = (data) => {
 }
 
 const selectWord = (e) => {
-    console.log(e.target);
     const siblings = e.target.parentElement.childNodes;
-    console.log(siblings);
     siblings.forEach(sibling => {
-        console.log(sibling);
         sibling.classList.remove('active');
     })
 
@@ -52,7 +48,6 @@ const selectWord = (e) => {
 const hideAside = () => {
     aside.classList.remove('show');
     aside.innerHTML = '';
-    console.log(aside);
 }
 
 export const rewritePoem = async (e) => {
@@ -62,36 +57,28 @@ export const rewritePoem = async (e) => {
     const item = e.target;
     const oldWord = item.dataset.oldWord;
 
-    // const response = await fetch('/api/rewrite', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //         oldWord,
-    //         newWord,
-    //         paragraph: output.textContent,
-    //     }),
-    // })
-
-    // const { data } = await response.json();
-    // displayPoetry(data);
-
-    console.log(oldWord, newWord);
-    console.log(chosenThemes);
     const keywords = chosenThemes.replace(oldWord, newWord).split(',');
-    console.log(keywords);
     showLoading(keywords);
 
-    setTimeout(() => {
-        displayPoetry(testRewrite);
-        removeLoading();
-    }, 20000);
+    const response = await fetch('/api/rewrite', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            oldWord,
+            newWord,
+            paragraph: output.textContent,
+        }),
+    })
+
+    const { data } = await response.json();
+    displayPoetry(data);
+    removeLoading();
 }
 
 const showWordAlternatives = (e) => {
 
-    console.log(e.target.parentElement.childNodes);
     const siblings = e.target.parentElement.childNodes;
     siblings.forEach(child => {
         if(child.classList){
@@ -150,33 +137,26 @@ export const fetchPoetry = async (genre, themes) => {
     const themesString = themes.join(',');
     chosenThemes = themesString;
 
-    console.log('fetchPoetry', genre, themesString);
-    // const response = await fetch('/api/poetry', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //         type: genre,
-    //         theme: themesString,
-    //     }),
-    // })
-
-    // const { data } = await response.json();
-    // console.log('fetchPoetry', data);
-    // displayPoetry(data)
-    console.log(themes);
     showLoading(themes);
-    setTimeout(() => {
-        displayPoetry(testPoetry);
-        removeLoading();
-    }, 10000);
+    const response = await fetch('/api/poetry', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            type: genre,
+            theme: themesString,
+        }),
+    })
+
+
+    const { data } = await response.json();
+    displayPoetry(data);
+    removeLoading();
 }
-// fetchPoetry('poem', ['love', 'hate', 'death']);
 
 window.addEventListener('click', (event) => {
     if (aside.classList.contains('show') && event.target.tagName === 'MAIN') {
-        console.log('hide');
         hideAside();
     }
 });
