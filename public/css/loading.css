@@ -48,13 +48,13 @@ section.loading{
     z-index: -1;
     pointer-events: none;
     transform: translateY(-100vh);
-    transition: transform 0.5s ease-in;
 }
 
 section.loading.show{
     transform: translateY(0);
     z-index: 1;
     pointer-events: all;
+    transition: transform 0.5s ease-in;
 }
 
 section.loading.show h3{
