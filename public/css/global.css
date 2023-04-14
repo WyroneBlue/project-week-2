@@ -7,17 +7,17 @@
 
 @font-face {
     font-family: 'SuisseIntl';
- 
+
     src: url('../assets/fonts/SuisseIntl-Regular.woff2') format('woff2');
- 
+
     font-style: normal;
   }
- 
+
   @font-face {
     font-family: 'Suisse Works';
- 
+
     src: url('../assets/fonts/SuisseWorks-Regular.woff2') format('woff2');
- 
+
     font-style: normal;
   }
 
@@ -70,6 +70,7 @@ div.nextBtn{
     bottom: 15px;
     right: 15px;
     opacity: 0;
+    padding: 20px;
 }
 
 div.nextBtn.remove{
@@ -93,6 +94,7 @@ div.finalNextBtn{
     bottom: 15px;
     right: 15px;
     opacity: 0;
+    padding: 20px;
 }
 
 div.finalNextBtn.block{

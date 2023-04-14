@@ -37,7 +37,6 @@ export function showLoading(keywords) {
     loadingScreen.classList.add('show');
 
     const target = document.querySelector('section.loading.show div');
-    console.log(target);
     target.addEventListener('click', bubbleJump);
 }
 
