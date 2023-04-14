@@ -21,7 +21,12 @@ section.heading-themes h2{
 section.themes{
     opacity: 0;
     transform: translateY(100vh);
+    display: none;
     
+}
+
+section.themes.block{
+    display: block;
 }
 
 section.themes.remove{
