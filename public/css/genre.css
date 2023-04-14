@@ -10,6 +10,38 @@ body.tragedy{
     background-size: cover;
 }
 
+body.comedy{
+    background-color: var(--comedy-bg-color); 
+}
+
+body.haiku{
+    background-color: var(--haiku-bg-color); 
+}
+
+body.snelsonnet{
+    background-color: var(--snelsonnet-bg-color); 
+}
+
+body.tragedy-plot{
+    background-color: var(--tragedyplot-bg-color); 
+}
+
+body.six-word-story{
+    background-color: var(--sixword-bg-color); 
+}
+
+body.manifest{
+    background-color: var(--manifest-bg-color); 
+}
+
+body.ollekebolleke{
+    background-color: var(--ollekebolleke-bg-color); 
+}
+
+body.essay{
+    background-color: var(--essay-bg-color); 
+}
+
 section.heading-genre{
     display: none;
     margin-bottom: 2rem;
@@ -44,7 +76,7 @@ section.heading-genre h2{
 
 section.genres{
     transform: translateY(-1500px);
-    transition: 1.7s;
+    
 }
 
 section.genres.remove{
@@ -53,6 +85,7 @@ section.genres.remove{
 
 section.genres.fall{
     transform: translateY(0px);
+    transition: 1.7s;
 }
 section.genres.out-screen{
     animation: fall 2s ease-in;
@@ -78,14 +111,89 @@ section.genres ul li.active{
 }
 
 section.genres ul li:nth-of-type(1){
+    position: absolute;
+    top: 597px;
+    left: 26px;
     border-radius: 90px;
+    transform: rotate(338deg);
 }
 
 section.genres ul li:nth-of-type(2){
+    /* position: absolute;
+    top: 331px;
+    left: 401px; */
     border-radius: 90px 0px 90px 90px;
+    transform: rotate(35deg);
+}
+
+section.genres ul li:nth-of-type(3){
+    /* position: absolute;
+    top: 437px;
+    left: 726px; */
+    transform: rotate(313deg);
 }
 
 section.genres ul li:nth-of-type(4){
+    /* position: absolute;
+    top: 702px;
+    left: 949px; */
     border-radius: 50%;
     aspect-ratio: 1/1;
+}
+
+section.genres ul li:nth-of-type(5){
+    /* position: absolute;
+    top: 575px;
+    left: 422px; */
+    border-radius:50%;
+    aspect-ratio: 1/1;
+}
+
+section.genres ul li:nth-of-type(6){
+    /* position: absolute;
+    top: 478px;
+    left: 1560px; */
+    transform: rotate(343deg);
+}
+
+section.genres ul li:nth-of-type(7){
+    /* position: absolute;
+    top: 476px;
+    left: 42px; */
+    transform: rotate(16deg);
+}
+
+section.genres ul li:nth-of-type(8){
+    /* position: absolute;
+    top: 417px;
+    left: 1158px; */
+    transform: rotate(322deg);
+}
+
+section.genres ul li:nth-of-type(9){
+    /* position: absolute;
+    top: 656px;
+    left: 1655px; */
+    transform: rotate(313deg);
+}
+
+section.genres ul li:nth-of-type(10){
+    /* position: absolute;
+    top: 274px;
+    left: 740px; */
+    transform: rotate(334deg);
+}
+
+section.genres ul li:nth-of-type(11){
+    /* position: absolute;
+    top: 687px;
+    left: 1109px; */
+    transform: rotate(22deg);
+}
+
+section.genres ul li:nth-of-type(12){
+    /* position: absolute;
+    top: 619px;
+    left: 1318px; */
+    transform: rotate(19deg);
 }

@@ -54,6 +54,7 @@ finalNextBtn.addEventListener('click', () => {
 
         setTimeout(() => {
             sectionPoem.classList.add('show');
+            finalNextBtn.classList.add('remove');
 
             console.log(themes);
             fetchPoetry(genre, themes);
