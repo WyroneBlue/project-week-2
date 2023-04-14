@@ -11,35 +11,35 @@ body.tragedy{
 }
 
 body.comedy{
-    background-color: var(--comedy-bg-color); 
+    background-color: var(--comedy-bg-color);
 }
 
 body.haiku{
-    background-color: var(--haiku-bg-color); 
+    background-color: var(--haiku-bg-color);
 }
 
 body.snelsonnet{
-    background-color: var(--snelsonnet-bg-color); 
+    background-color: var(--snelsonnet-bg-color);
 }
 
 body.tragedy-plot{
-    background-color: var(--tragedyplot-bg-color); 
+    background-color: var(--tragedyplot-bg-color);
 }
 
 body.six-word-story{
-    background-color: var(--sixword-bg-color); 
+    background-color: var(--sixword-bg-color);
 }
 
 body.manifest{
-    background-color: var(--manifest-bg-color); 
+    background-color: var(--manifest-bg-color);
 }
 
 body.ollekebolleke{
-    background-color: var(--ollekebolleke-bg-color); 
+    background-color: var(--ollekebolleke-bg-color);
 }
 
 body.essay{
-    background-color: var(--essay-bg-color); 
+    background-color: var(--essay-bg-color);
 }
 
 section.heading-genre{
@@ -75,8 +75,8 @@ section.heading-genre h2{
 }
 
 section.genres{
-    transform: translateY(-1500px);
-    
+    transform: translateY(-200vh);
+
 }
 
 section.genres.remove{
