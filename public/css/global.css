@@ -83,6 +83,10 @@ div.finalNextBtn img{
     object-fit: cover;
 }
 
+div.finalNextBtn.remove{
+    display: none;
+}
+
 
 
 @keyframes fall{

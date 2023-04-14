@@ -20,7 +20,7 @@ section.heading-themes h2{
 
 section.themes{
     transform: translateY(100vh);
-    transition: 1.7s;
+    
 }
 
 section.themes.remove{
@@ -56,6 +56,7 @@ section.themes ul li.active{
 
 section.themes.fall{
     transform: translateY(0px);
+    transition: 1.7s;
 }
 
 section.heading-themes.remove{
