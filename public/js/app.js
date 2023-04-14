@@ -32,6 +32,7 @@ nextBtn.addEventListener('click', () => {
         nextBtn.classList.add('fade-out');
 
         headingThemes.classList.add('block');
+        sectionThemes.classList.add('block');
         setTimeout(() => {
             headingThemes.classList.add('fade-in');
             nextBtn.classList.add('remove');

@@ -100,7 +100,6 @@ li{
     border: 4px solid transparent;
 }
 
-li.active,
 span.active{
     background-color: white;
     color: black;

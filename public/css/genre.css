@@ -48,6 +48,11 @@ section.heading-genre{
     opacity: 0;
     transform: translateY(100px);
     transition: 0.4s;
+    font-family: var(--primary-font-family);
+}
+
+section.heading-genre h2 span{
+    font-family: var(--secondary-font-family);
 }
 
 section.heading-genre.fade-in{
@@ -102,8 +107,9 @@ section.genres ul li{
     color: black;
     background-color: white;
     padding: 40px;
-    font-size: 2em;
+    font-size: 1em;
     font-weight: 600;
+    height: fit-content;
 }
 
 section.genres ul li.active{
@@ -112,7 +118,7 @@ section.genres ul li.active{
 
 section.genres ul li:nth-of-type(1){
     position: absolute;
-    top: 597px;
+    top: 392px;
     left: 26px;
     border-radius: 90px;
     transform: rotate(338deg);
@@ -130,13 +136,14 @@ section.genres ul li:nth-of-type(3){
     /* position: absolute;
     top: 437px;
     left: 726px; */
-    transform: rotate(313deg);
+    transform: rotate(356deg);
 }
 
 section.genres ul li:nth-of-type(4){
     /* position: absolute;
     top: 702px;
     left: 949px; */
+    height: 9em;
     border-radius: 50%;
     aspect-ratio: 1/1;
 }
