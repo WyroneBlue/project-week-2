@@ -63,7 +63,7 @@ finalNextBtn.addEventListener('click', () => {
 const resetGenreItems = () => {
     genreItems.forEach(genreItem => {
         genreItem.classList.remove('active');
-        body.classList.remove(genreItem.dataset.genreName);
+        body.classList.remove(genreItem.dataset.genreClass);
     })
 }
 
@@ -71,8 +71,11 @@ genreItems.forEach(genreItem => {
     genreItem.addEventListener('click', (e) => {
         resetGenreItems();
         const name = e.target.dataset.genreName;
+        const className = e.target.dataset.genreClass;
+
+        // console.log(className, name);
         genre = name;
-        body.classList.add(name);
+        body.classList.add(className);
         genreItem.classList.add('active');
         nextBtn.classList.add('fade-in');
     });
